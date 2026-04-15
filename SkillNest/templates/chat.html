@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+
+<h3>Chat with {{ user.name }}</h3>
+
+<div class="card p-3 mb-3" style="height:300px; overflow-y:auto;">
+    {% for msg in chats %}
+    <div class="mb-2">
+        <strong>
+                {% if msg.sender_id == current_user.id %}
+                    You:
+                {% else %}
+                    {{ user.name }}:
+                {% endif %}
+            </strong> {{ msg.content }}
+    </div>
+    {% endfor %}
+</div>
+
+<form method="POST" class="d-flex">
+    <input type="text" name="message" class="form-control me-2" placeholder="Type message..." required>
+    <button class="btn btn-success">Send</button>
+</form>
+
+{% endblock %}

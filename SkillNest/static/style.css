@@ -1,0 +1,120 @@
+/* 🌿 Color Variables */
+
+:root {
+    --moss: #2C3424;
+    --cypress: #4C583E;
+    --olive: #768064;
+    --cedar: #959581;
+    --aloe: #DADED8;
+}
+
+
+/* 🌿 Base */
+
+body {
+    background-color: var(--aloe);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--moss);
+}
+
+
+/* 🔗 Navbar */
+
+.navbar {
+    background-color: var(--moss);
+}
+
+.navbar-brand {
+    color: var(--aloe) !important;
+    font-weight: 600;
+}
+
+.navbar span {
+    color: var(--aloe);
+}
+
+
+/* 🧾 Cards */
+
+.card {
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(44, 52, 36, 0.15);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* 🔘 Custom Buttons */
+
+.btn-custom {
+    background-color: var(--olive);
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: var(--cypress);
+}
+
+.btn-outline-custom {
+    border: 1px solid var(--aloe);
+    color: var(--aloe);
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--cypress);
+    color: white;
+}
+
+
+/* 🧾 Forms */
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--cedar);
+}
+
+.form-control:focus {
+    border-color: var(--olive);
+    box-shadow: none;
+}
+
+
+/* 📦 Center Layout */
+
+.center-box {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ✨ Headings */
+
+h2,
+h3 {
+    font-weight: 600;
+}
+
+
+/* 📊 Dashboard Cards */
+
+.stat-card {
+    background: linear-gradient(135deg, #768064, #4C583E);
+    color: white;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}

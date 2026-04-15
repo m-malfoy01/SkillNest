@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="center-box">
+
+    <div class="card p-4" style="width:420px;">
+
+        <h3 class="mb-4 text-center">Post a Skill</h3>
+
+        <form method="POST">
+
+            <!-- 🏷️ Title -->
+            <div class="mb-3">
+                <input type="text" name="title" class="form-control" placeholder="Skill Title (e.g. Math Tutor)" required>
+            </div>
+
+            <!-- 📝 Description -->
+            <div class="mb-3">
+                <textarea name="description" class="form-control" placeholder="Describe your skill..." rows="3" required></textarea>
+            </div>
+
+            <!-- 📂 Category -->
+            <div class="mb-3">
+                <select name="category" class="form-control" required>
+                    <option value="">Select Category</option>
+
+                    <optgroup label="Services">
+                        <option>Tutoring</option>
+                        <option>Babysitting</option>
+                        <option>Fitness Training</option>
+                        <option>Music / Art Lessons</option>
+                    </optgroup>
+
+                    <optgroup label="Home & Repair">
+                        <option>Plumbing</option>
+                        <option>Electrical Work</option>
+                        <option>Carpentry</option>
+                        <option>Appliance Repair</option>
+                    </optgroup>
+
+                    <optgroup label="Household">
+                        <option>Cleaning</option>
+                        <option>Cooking</option>
+                        <option>Laundry</option>
+                    </optgroup>
+
+                    <optgroup label="Tech & Digital">
+                        <option>Web Development</option>
+                        <option>Graphic Design</option>
+                        <option>Data Entry</option>
+                        <option>Tech Support</option>
+                    </optgroup>
+
+                    <optgroup label="Local Help">
+                        <option>Delivery</option>
+                        <option>Moving Help</option>
+                        <option>Errands</option>
+                    </optgroup>
+
+                    <optgroup label="Events & Misc">
+                        <option>Photography</option>
+                        <option>Event Assistance</option>
+                        <option>Makeup / Styling</option>
+                    </optgroup>
+
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- 💰 Rate -->
+            <div class="mb-3">
+                <input type="number" name="rate" class="form-control" placeholder="Rate (₹ per hour)" required>
+            </div>
+
+            <!-- 📍 Location -->
+            <div class="mb-3">
+                <input type="text" name="location" class="form-control" placeholder="Location" required>
+            </div>
+
+            <!-- 🚀 Submit -->
+            <button type="submit" class="btn btn-custom w-100">
+                + Post Skill
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

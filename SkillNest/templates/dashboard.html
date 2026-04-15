@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block content %}
+
+<h2 class="mb-4">Dashboard</h2>
+
+<!-- 🔢 Stats -->
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Users</h6>
+            <h3>{{ total_users }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Skills</h6>
+            <h3>{{ total_skills }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Messages</h6>
+            <h3>{{ total_messages }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Rating</h6>
+            <h3>⭐ {{ avg_rating }}</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- ➕ Action -->
+<div class="mb-4">
+    <a href="/post-skill" class="btn btn-success">+ Post a Skill</a>
+</div>
+
+<!-- 🔍 Filters -->
+<form method="GET" action="/dashboard" class="row g-3 mb-4">
+
+    <div class="col-md-3">
+        <input type="text" name="search" class="form-control" placeholder="Search">
+    </div>
+
+    <div class="col-md-3">
+        <input type="text" name="category" class="form-control" placeholder="Category">
+    </div>
+
+    <div class="col-md-3">
+        <input type="text" name="location" class="form-control" placeholder="Location">
+    </div>
+
+    <div class="col-md-3">
+        <button class="btn btn-custom w-100">Filter</button>
+    </div>
+
+</form>
+
+<!-- 🛠️ Skills -->
+<div class="row">
+    {% for skill in skills %}
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5>{{ skill.title }}</h5>
+                <p>{{ skill.description }}</p>
+
+                <p><strong>₹{{ skill.rate }}</strong></p>
+                <p class="text-muted">{{ skill.category }} • {{ skill.location }}</p>
+
+                <p><small>By {{ skill.user.name }}</small></p>
+                <p>⭐ {{ skill.user.average_rating }}</p>
+
+                <a href="/chat/{{ skill.user.id }}" class="btn btn-primary btn-sm">Chat</a>
+                <a href="/rate/{{ skill.user.id }}" class="btn btn-warning btn-sm">Rate</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

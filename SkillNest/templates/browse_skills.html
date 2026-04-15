@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+
+<h2 class="mb-4">Available Skills</h2>
+
+<form method="GET" action="/skills" class="row g-2 mb-4">
+    <div class="col">
+        <input type="text" name="search" class="form-control" placeholder="Search">
+    </div>
+    <div class="col">
+        <input type="text" name="category" class="form-control" placeholder="Category">
+    </div>
+    <div class="col">
+        <input type="text" name="location" class="form-control" placeholder="Location">
+    </div>
+    <div class="col">
+        <button class="btn btn-dark w-100">Filter</button>
+    </div>
+</form>
+
+<div class="row">
+    {% for skill in skills %}
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ skill.title }}</h5>
+                <p class="card-text">{{ skill.description }}</p>
+
+                <p><strong>₹{{ skill.rate }}</strong></p>
+                <p class="text-muted">{{ skill.category }} • {{ skill.location }}</p>
+
+                <p><small>By {{ skill.user.name }}</small></p>
+
+                <a href="/chat/{{ skill.user.id }}" class="btn btn-primary btn-sm">Chat</a>
+                <a href="/rate/{{ skill.user.id }}" class="btn btn-warning btn-sm">Rate</a>
+                <p>⭐ {{ skill.user.average_rating }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
